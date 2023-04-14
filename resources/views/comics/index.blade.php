@@ -27,7 +27,7 @@
                     <td> {{$comic->series}} </td>
                     <td> {{$comic->sale_date}} </td>
                     <td> {{$comic->type}} </td>
-                    <td class="text-center"> <a href="#">--></a> </td>
+                    <td class="text-center"> <a href="{{ route('comics.show', $comic)}}">--></a> </td>
                     </tr>
                     
                 @endforeach
@@ -37,6 +37,10 @@
 
 
     </div>
+
+    <div class="container text-center">
+        <a href="{{route('home')}}" class="btn btn-primary mb-3" role="button">Indietro</a>
+     </div>
     
 @endsection
  

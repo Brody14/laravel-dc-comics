@@ -1,6 +1,24 @@
 @import '~bootstrap/scss/bootstrap';
 
+
+img {
+    max-width: 100%;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
 .thumb {
     height: 100px;
     width: 70px;
+}
+
+.show_thumb{
+    height: 500px;
+}
+
+.show_text {
+    text-align: justify;
 }
