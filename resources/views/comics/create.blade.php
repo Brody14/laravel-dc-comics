@@ -44,7 +44,10 @@
     
           <div class="mb-3">
             <label for="type" class="form-label">Tipologia</label>
-            <input type="text" class="form-control" id="type" name="type" >
+            <select name="type" id="type">
+                <option value="comic book">Comic Book</option>
+                <option value="graphic novel">Graphic Novel</option>
+            </select>
           </div>
     
           <a href="{{route('comics.index')}}" class="btn btn-primary mb-3" role="button">Indietro</a>
