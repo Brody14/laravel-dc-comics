@@ -7,9 +7,10 @@
     </div>
 
     <div class="container">
-      <form action="" method="POST">
+      <form action="{{ route('comics.update', $comic)}}" method="POST">
 
         @csrf
+        @method('PUT')
 
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
@@ -47,7 +48,8 @@
             <label for="type" class="form-label">Tipologia</label>
             <input type="text" class="form-control" id="type" name="type" value="{{$comic->type}}">
           </div>
-    
+          
+          <a href="{{route('comics.index')}}" class="btn btn-primary mb-3" role="button">Indietro</a>
           <button type="submit" class="btn btn-primary mb-3">Salva</button>
       </form>
     </div>
