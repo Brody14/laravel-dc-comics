@@ -47,6 +47,7 @@
             <input type="text" class="form-control" id="type" name="type" >
           </div>
     
+          <a href="{{route('comics.index')}}" class="btn btn-primary mb-3" role="button">Indietro</a>
           <button type="submit" class="btn btn-primary mb-3">Salva</button>
       </form>
     </div>
