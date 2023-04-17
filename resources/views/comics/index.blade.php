@@ -1,15 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
     <div class="container py-5">
+      <div class="row">
+        <div class="col-auto ms-auto">
+          <a href="{{ route('comics.create') }}" class="btn btn-primary btn-sm">Aggiungi Comic</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container py-3">
 
         <table class="table">
             <thead>
               <tr>
                 <th scope="col">Titolo</th>
-                <th scope="col">Descrizione</th>
                 <th scope="col">Copertina</th>
+                <th scope="col">Descrizione</th>
                 <th scope="col">Prezzo</th>
                 <th scope="col">Serie</th>
                 <th scope="col">Uscita</th>
@@ -20,14 +28,14 @@
             <tbody>
                 @foreach ($comics as $comic)
                     <tr>
-                    <td> {{$comic->title}} </td>
-                    <td> {{ substr($comic->description, 0, 150) . '...'}} </td>
+                    <td> <a href="{{ route('comics.show', $comic)}}"> {{$comic->title}} </a> </td>
                     <td> <img class="thumb" src="{{$comic->thumb}}" alt=""> </td>
+                    <td> {{ substr($comic->description, 0, 150) . '...'}} </td>
                     <td> {{$comic->price}} &dollar; </td>
                     <td> {{$comic->series}} </td>
                     <td> {{$comic->sale_date}} </td>
                     <td> {{$comic->type}} </td>
-                    <td class="text-center"> <a href="{{ route('comics.show', $comic)}}">--></a> </td>
+                    <td> </td>
                     </tr>
                     
                 @endforeach
