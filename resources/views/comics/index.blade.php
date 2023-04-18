@@ -28,14 +28,25 @@
             <tbody>
                 @foreach ($comics as $comic)
                     <tr>
-                    <td> <a href="{{ route('comics.show', $comic)}}"> {{$comic->title}} </a> </td>
-                    <td> <img class="thumb" src="{{$comic->thumb}}" alt=""> </td>
-                    <td> {{ substr($comic->description, 0, 150) . '...'}} </td>
-                    <td> {{$comic->price}} &dollar; </td>
-                    <td> {{$comic->series}} </td>
-                    <td> {{$comic->sale_date}} </td>
-                    <td> {{$comic->type}} </td>
-                    <td> <a href="{{ route('comics.edit', $comic)}}"> <i class="fa-solid fa-pencil"></i> </a></td>
+                      <td> <a href="{{ route('comics.show', $comic)}}"> {{$comic->title}} </a> </td>
+                      <td> <img class="thumb" src="{{$comic->thumb}}" alt=""> </td>
+                      <td> {{ substr($comic->description, 0, 150) . '...'}} </td>
+                      <td> {{$comic->price}} &dollar; </td>
+                      <td> {{$comic->series}} </td>
+                      <td> {{$comic->sale_date}} </td>
+                      <td> {{$comic->type}} </td>
+                      <td> 
+                        <div class="d-flex gap-2 align-items-center">
+                          <a href="{{ route('comics.edit', $comic)}}"> <i class="fa-solid fa-pencil"></i> </a>
+                          <form action="{{route('comics.destroy', $comic)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">
+                              <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                          </form>
+                        </div>
+                      </td>
                     </tr>
                     
                 @endforeach
