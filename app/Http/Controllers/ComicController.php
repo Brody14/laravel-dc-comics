@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -28,7 +29,21 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         //dd('inviato');
-        $data = $request->all();
+
+        //VALIDAZIONE
+        $data = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required|string',
+            'thumb' => 'required|max:255|url',
+            'price' => 'required|decimal:2',
+            'series' => 'required|max:255',
+            'sale_date' => 'required|date',
+            'type' => [
+                'required',
+                Rule::in(['comic book', 'graphic novel'])
+            ]
+        ]);
+
 
         $new_comic = new Comic();
 

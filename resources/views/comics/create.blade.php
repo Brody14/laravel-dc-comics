@@ -53,6 +53,17 @@
           <a href="{{route('comics.index')}}" class="btn btn-primary mb-3" role="button">Indietro</a>
           <button type="submit" class="btn btn-primary mb-3">Salva</button>
       </form>
+
+      @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+      @endif
+
     </div>
 
 
