@@ -45,16 +45,17 @@ class ComicController extends Controller
         ]);
 
 
-        $new_comic = new Comic();
+        // $new_comic = new Comic();
 
-        $new_comic->title = $data['title'];
-        $new_comic->thumb = $data['thumb'];
-        $new_comic->description = $data['description'];
-        $new_comic->price = $data['price'];
-        $new_comic->series = $data['series'];
-        $new_comic->sale_date = $data['sale_date'];
-        $new_comic->type = $data['type'];
-        $new_comic->save();
+        // $new_comic->title = $data['title'];
+        // $new_comic->thumb = $data['thumb'];
+        // $new_comic->description = $data['description'];
+        // $new_comic->price = $data['price'];
+        // $new_comic->series = $data['series'];
+        // $new_comic->sale_date = $data['sale_date'];
+        // $new_comic->type = $data['type'];
+        // $new_comic->save();
+        $new_comic = Comic::create($data);
 
         return to_route('comics.show', $new_comic);
     }
@@ -83,14 +84,16 @@ class ComicController extends Controller
             ]
         ]);
 
-        $comic->title = $data['title'];
-        $comic->thumb = $data['thumb'];
-        $comic->description = $data['description'];
-        $comic->price = $data['price'];
-        $comic->series = $data['series'];
-        $comic->sale_date = $data['sale_date'];
-        $comic->type = $data['type'];
-        $comic->save();
+        // $comic->title = $data['title'];
+        // $comic->thumb = $data['thumb'];
+        // $comic->description = $data['description'];
+        // $comic->price = $data['price'];
+        // $comic->series = $data['series'];
+        // $comic->sale_date = $data['sale_date'];
+        // $comic->type = $data['type'];
+        // $comic->save();
+
+        $comic->update($data);
 
         return to_route('comics.show', $comic);
     }
